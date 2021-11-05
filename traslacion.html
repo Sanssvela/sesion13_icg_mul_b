@@ -1,0 +1,46 @@
+<canvas id='canvas' width=800 height=800>
+<script>
+	
+    function sumaTras(v1, v2) {
+  var s = []; ///variable para guardar el resultado final
+  
+  return s;
+   }
+   function polygon(a, colorBorde, colorRelleno, grosor) { 
+	ctx.beginPath()
+	ctx.strokeStyle = colorBorde
+	ctx.fillStyle = colorRelleno
+	ctx.lineWidth = grosor;
+	ctx.moveTo(a[0],a[1])
+	for (i=2; i < a.length; i+=2)
+	ctx.lineTo(a[i],a[i+1]);
+	ctx.closePath()
+	ctx.stroke()
+	ctx.fill()
+}
+
+	
+	function SumaTransl(a,b){
+	var c = [];
+	for (i=0; i < a.length; i+=2){
+	c[i]=(a[i]+b[0])
+	c[i+1]=(a[i+1]+b[1])
+    }
+	return c;
+}
+
+	var canvas = document.getElementById('canvas')
+	var ctx = canvas.getContext('2d');
+
+	var LetraC = [35 , 8 , 31, 366 , 99 , 368, 103, 217, 158, 219, 156,154, 101, 155, 101, 70, 242, 66, 242, 9];
+
+	var vec_tran = [250, 350];
+
+	var LetraC_trans = SumaTransl(LetraC, vec_tran)
+
+	polygon(LetraC, 'red','blue', 5)
+
+	polygon(LetraC_trans, 'blue','red', 5)
+
+
+</script>
